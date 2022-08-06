@@ -26,10 +26,12 @@ class HabitacionesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            
-            'name' => 'required',
-            'description' => 'required',
-            'status' => 'required'
+
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'precio' => 'required',
+            'personas' => 'required',
+            'estado' => 'required'
         ]);
 
         $habitaciones = Habitaciones::create($request->all());

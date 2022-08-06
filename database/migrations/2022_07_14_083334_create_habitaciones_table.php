@@ -15,9 +15,11 @@ class CreateHabitacionesTable extends Migration
     {
         Schema::create('habitaciones', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->string('status');
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->string('precio');
+            $table->string('personas');
+            $table->string('estado');
             $table->timestamps();
         });
     }

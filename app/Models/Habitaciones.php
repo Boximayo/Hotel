@@ -10,8 +10,10 @@ class Habitaciones extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'description',
-        'status',
+        'nombre',
+        'descripcion',
+        'precio',
+        'personas',
+        'estado',
     ];
 }
