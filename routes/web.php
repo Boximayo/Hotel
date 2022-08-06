@@ -1,6 +1,11 @@
 <?php
 
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FullCalenderController;
+use App\Http\Controller\WelcomeController;
+use App\Http\Controller\HabitacionesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +24,5 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-
+Route::Resource('welcome', 'App\Http\Controllers\WelcomeController');

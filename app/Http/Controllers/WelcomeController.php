@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Habitaciones;
+
+use Http;
 use Illuminate\Http\Request;
 
-class HabitacionesController extends Controller
+class WelcomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,20 @@ class HabitacionesController extends Controller
      */
     public function index()
     {
-        $habitaciones = Habitaciones::all();
-        return \response($habitaciones);
+
+        $habitacion = Http::get('http://hotel.test/api/habitaciones');
+        $habitaciones = json_decode( $habitacion->getBody()->getContents());
+        return view('welcome',  compact('habitaciones'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -25,15 +38,7 @@ class HabitacionesController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            
-            'name' => 'required',
-            'description' => 'required',
-            'status' => 'required'
-        ]);
-
-        $habitaciones = Habitaciones::create($request->all());
-        return \response ($habitaciones);
+        //
     }
 
     /**
@@ -44,8 +49,18 @@ class HabitacionesController extends Controller
      */
     public function show($id)
     {
-        $habitaciones = Habitaciones::findOrFail($id);
-        return \response($habitaciones);
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
     }
 
     /**
@@ -57,9 +72,7 @@ class HabitacionesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Habitaciones::findOrFail($id)
-            ->update($request->all());
-        return \response ("Habitacion actualizada");
+        //
     }
 
     /**
@@ -70,7 +83,6 @@ class HabitacionesController extends Controller
      */
     public function destroy($id)
     {
-        Habitaciones::destroy($id);
-        return \response ("La tarea con id: ${id} ha sido eliminada");
+        //
     }
 }
