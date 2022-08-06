@@ -86,7 +86,13 @@
 
 
                             </div>
-                            <a href="#" class="btn btn-outline-info btn-lg btn-block m-2" data-toggle="modal" data-target="#exampleModalCenter">Reservar</a>
+                            <form action="{{ route('habitaciones.update', $habitacion->id)}}" method="post">
+                                @csrf @method('PATCH')
+
+                                <input id="estado" type="hidden" name="estado" value="1" required autocomplete="name">
+                                <button class="btn-primary">reservar</button>
+
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -179,19 +185,24 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-            <h6 class="card-text font-weight-normal text-center mt-5">Ingresa la fecha de reservacion</h6>
-            <div class="text-center">
-                <input type="date" value="" class="mb-5" >
+        <form action="{{ route('welcome.update', $habitacion->id)}}" method="post">
+            @csrf @method('PATCH')
+            <div class="modal-body">
+                <h6 class="card-text font-weight-normal text-center mt-5">Ingresa la fecha de reservacion</h6>
 
-            </div>
-        </div>
-        <div class="modal-footer">
-            <div class="text-center">
-                <button type="button" class="btn btn-success">Confirmar Reservacion</button>
+                <div class="text-center">
+                    <input type="date" value="" class="mb-5" >
 
+                </div>
             </div>
-        </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-success">Confirmar Reservacion</button>
+
+                </div>
+            </div>
+        </form>
+
       </div>
     </div>
   </div>

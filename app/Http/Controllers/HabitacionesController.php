@@ -61,7 +61,7 @@ class HabitacionesController extends Controller
     {
         Habitaciones::findOrFail($id)
             ->update($request->all());
-        return \response ("Habitacion actualizada");
+        return redirect()->route('welcome.index');
     }
 
     /**

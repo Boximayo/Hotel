@@ -72,7 +72,10 @@ class WelcomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $id->estado =  Http::patch('http://hotel.test/api/habitaciones');
+
+        return redirect()->route('welcome.index');
     }
 
     /**
