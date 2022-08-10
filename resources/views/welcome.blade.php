@@ -52,7 +52,7 @@
 
             <div class="card mt-5 " style="width: 750px; background-color:transparent " >
                 @foreach ($habitaciones as $habitacion)
-                <div class="row no-gutters rounded border mb-5 border border-secondary" style="background-color: white">
+                <div class="row no-gutters rounded border mb-5 border border-secondary bg-dark text-white" >
                     <div class="col-sm-5">
 
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -113,9 +113,11 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                      <h6 class="card-text font-weight-normal text-center mt-5">Ingresa la fecha de reservacion</h6>
+                      <h6 class="card-text font-weight-normal text-left ">Ingresa el nombre del titular de la reservacion</h6>
+                      <input type="text" class="form-control" placeholder="Nombre Completo">
+                      <h6 class="card-text font-weight-normal text-left mt-3">Ingresa la fecha de reservacion</h6>
                       <div class="text-center">
-                          <input type="date" value="" class="mb-5" >
+                          <input type="date" class="form-control" value="" class="mb-5" >
                           <form action="{{ route('habitaciones.update', $habitacion->id)}}" method="post">
                             @csrf @method('PATCH')
 
@@ -176,9 +178,9 @@
 
       <div class="d-flex flex-row bd-highlight ">
 
-          <div class="card mt-5 " style="width: 750px; background-color:transparent " >
+          <div class="card mt-5  " style="width: 750px; background-color:transparent " >
               @foreach ($habitaciones as $habitacion)
-              <div class="row no-gutters rounded border mb-5 border border-secondary" style="background-color: white">
+              <div class="row no-gutters rounded border mb-5 border border-secondary bg-dark text-white" >
                   <div class="col-sm-5">
 
                       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

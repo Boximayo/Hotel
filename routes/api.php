@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controller\HabitacionesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controller\HabitacionesController;
 
 /*
 |--------------------------------------------------------------------------
