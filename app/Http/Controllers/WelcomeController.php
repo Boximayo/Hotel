@@ -15,7 +15,7 @@ class WelcomeController extends Controller
     public function index()
     {
 
-        $habitacion = Http::get('http://hotel.test/api/habitaciones');
+        $habitacion = Http::get('https://whale-app-fkisz.ondigitalocean.app/api/habitaciones');
         $habitaciones = json_decode( $habitacion->getBody()->getContents());
         return view('welcome',  compact('habitaciones'));
     }
