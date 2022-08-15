@@ -466,10 +466,7 @@
             <div class="modal-body">
                 <h6 class="card-text font-weight-normal text-center mt-5">Ingresa la fecha de reservacion</h6>
 
-                <div class="text-center">
-                    <input type="date" value="1" class="mb-5" >
-
-                </div>
+                <input id="estado" type="hidden" name="estado" value="1" required autocomplete="">
             </div>
             <div class="modal-footer">
                 <div class="text-center">
