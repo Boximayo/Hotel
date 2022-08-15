@@ -324,7 +324,7 @@
                       <input type="text" class="form-control" placeholder="Nombre Completo">
                       <h6 class="card-text font-weight-normal text-left mt-3">Ingresa la fecha de reservacion</h6>
                       <div class="text-center">
-                          <input type="date" class="form-control" value="" class="mb-5" >
+                          <input type="date" class="form-control" value="1" class="mb-5" >
                           <form action="{{ route('habitaciones.update', $habitacion->id)}}" method="post">
                             @csrf @method('PATCH')
 
@@ -467,7 +467,7 @@
                 <h6 class="card-text font-weight-normal text-center mt-5">Ingresa la fecha de reservacion</h6>
 
                 <div class="text-center">
-                    <input type="date" value="" class="mb-5" >
+                    <input type="date" value="1" class="mb-5" >
 
                 </div>
             </div>
