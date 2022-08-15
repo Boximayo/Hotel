@@ -7,6 +7,7 @@ use App\Http\Controllers\FullCalenderController;
 use App\Http\Controller\WelcomeController;
 use App\Http\Controller\HabitacionesController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +20,7 @@ use App\Http\Controller\HabitacionesController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Auth::routes();
@@ -27,3 +28,4 @@ Auth::routes();
 
 Route::Resource('index', 'App\Http\Controllers\IndexController');
 Route::Resource('welcome', 'App\Http\Controllers\WelcomeController');
+

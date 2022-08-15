@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 </head>
 
 <style>
@@ -47,12 +48,7 @@
                     <a class="nav-link text-white ">Hospedaje</a>
                   </li>
                   <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        <a class="dropdown-item text-white mt-2" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -61,8 +57,8 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                    </div>
                 </li>
+
               </ul>
         </div>
     </div>
@@ -127,7 +123,58 @@
                     </div>
                 </div>
             </div>
-            @else
+            @else<div class="row no-gutters rounded  mb-5 text-white bg-dark"   >
+                <div class="col-sm-5">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="card-img mt-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="card-img mt-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="Second slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="card-img mt-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="Third slide">
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only"></span>
+                        </a>
+                      </div>
+
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h4 class="card-title text-center fs-semibold mt-3">{{$habitacion->nombre}}</h4>
+                        <div class="text-left ml-2">
+                            <h5 class="card-text fs-light">{{$habitacion->descripcion}}.</h5>
+                            <p class="card-text font-weight-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person mr-2" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                              </svg>habitacion para {{$habitacion->personas}} personas.</p>
+                              <h6 class="card-text font-bold">MXM$ {{$habitacion->precio}}.</h6>
+
+                            <span class="badge rounded-pill text-bg-danger">
+                                @if ($habitacion->estado == 1)
+                                    Ocupada
+                                @else
+                                    ocupada
+                                @endif
+                               </span>
+
+
+                        </div>
+                            <div class="d-grid gap-2">
+                                <a href="#" class="btn btn-info btn-sm btn-block m-2 disabled" data-toggle="modal" data-target="#exampleModalCenter">Reservar</a>
+                              </div>
+
+                    </div>
+                </div>
+            </div>
 
             @endif
 
@@ -188,7 +235,58 @@
                     </div>
                 </div>
                 @else
+                <div class="row no-gutters rounded  mb-5 text-white bg-dark"   >
+                    <div class="col-sm-5">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img class="card-img mt-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="First slide">
+                              </div>
+                              <div class="carousel-item">
+                                <img class="card-img mt-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="Second slide">
+                              </div>
+                              <div class="carousel-item">
+                                <img class="card-img mt-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="Third slide">
+                              </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only"></span>
+                            </a>
+                          </div>
 
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="card-body">
+                            <h4 class="card-title text-center fs-semibold mt-3">{{$habitacion->nombre}}</h4>
+                            <div class="text-left ml-2">
+                                <h5 class="card-text fs-light">{{$habitacion->descripcion}}.</h5>
+                                <p class="card-text font-weight-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person mr-2" viewBox="0 0 16 16">
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                                  </svg>habitacion para {{$habitacion->personas}} personas.</p>
+                                  <h6 class="card-text font-bold">MXM$ {{$habitacion->precio}}.</h6>
+
+                                <span class="badge rounded-pill text-bg-danger">
+                                    @if ($habitacion->estado == 1)
+                                    Ocupada
+                                    @else
+
+                                    @endif
+                                   </span>
+
+
+                            </div>
+                                <div class="d-grid gap-2">
+                                    <a href="#" class="btn btn-info btn-sm btn-block m-2 disabled" data-toggle="modal" data-target="#exampleModalCenter">Reservar</a>
+                                  </div>
+
+                        </div>
+                    </div>
+                </div>
                 @endif
 
 
