@@ -461,7 +461,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="{{ route('welcome.update', $habitacion->id)}}" method="post">
+        <form action="{{ route('habitaciones.update', $habitacion->id)}}" method="post">
             @csrf @method('PATCH')
             <div class="modal-body">
                 <h6 class="card-text font-weight-normal text-center mt-5">Ingresa la fecha de reservacion</h6>
