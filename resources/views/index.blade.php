@@ -53,7 +53,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="
-            https://media.traveler.es/photos/6137717270e3cff8b85f8ff2/master/w_1800,h_1201,c_limit/129598.jpg" class="d-block w-100" style="max-height: 650px"   alt="...">
+            https://media.traveler.es/photos/6137717270e3cff8b85f8ff2/master/w_1800,h_1201,c_limit/129598.jpg" class="d-block w-100" style="max-height: 800px"   alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <p class="fs-1 fw-semibold " style="  text-shadow: 2px 2px 4px #000000;">Sistema de Reservacion de Hotel</p>
                 <p class="fs-6 fw-bold text-white lh-1" style="  text-shadow: 2px 2px 4px #000000;">uno de los Mejores Hoteles en el Mundo por los World's Best Awards de Travel + Leisure, <br> ofrece una de las mejores experiencias vacacionales</p>
@@ -61,7 +61,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img src=" https://media.traveler.es/photos/613771723decec3303bac0ca/master/w_1600%2Cc_limit/129599.jpg" class="d-block w-100" style="max-height:650px" alt="...">
+            <img src=" https://media.traveler.es/photos/613771723decec3303bac0ca/master/w_1600%2Cc_limit/129599.jpg" class="d-block w-100" style="max-height:800px" alt="...">
             <div class="carousel-caption d-none d-md-block ">
                 <p class="fs-1 fw-semibold " style="  text-shadow: 2px 2px 4px #000000;">Sistema de Reservacion de Hotel</p>
                 <p class="fs-6 fw-bold text-white lh-1" style="  text-shadow: 2px 2px 4px #000000;">uno de los Mejores Hoteles en el Mundo por los World's Best Awards de Travel + Leisure, <br> ofrece una de las mejores experiencias vacacionales</p>
@@ -69,7 +69,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img src="https://cdn-3.expansion.mx/dims4/default/515c12b/2147483647/strip/true/crop/2048x1365+0+0/resize/1800x1200!/format/webp/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2F80%2F11%2F9062f39a4789b7e109ae23f08aec%2F15585113-1298709533501637-6621563218004275630-o.jpg" style="max-height:650px" class="d-block w-100" alt="...">
+            <img src="https://cdn-3.expansion.mx/dims4/default/515c12b/2147483647/strip/true/crop/2048x1365+0+0/resize/1800x1200!/format/webp/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2F80%2F11%2F9062f39a4789b7e109ae23f08aec%2F15585113-1298709533501637-6621563218004275630-o.jpg" style="max-height:800px" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block shadow ">
                 <p class="fs-1 fw-semibold " style="  text-shadow: 2px 2px 4px #000000;">Sistema de Reservacion de Hotel</p>
                 <p class="fs-6 fw-bold text-white lh-1" style="  text-shadow: 2px 2px 4px #000000;">uno de los Mejores Hoteles en el Mundo por los World's Best Awards de Travel + Leisure, <br> ofrece una de las mejores experiencias vacacionales</p>
