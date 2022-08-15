@@ -3,7 +3,8 @@
 <head>
     <title>Reservaciones Hotel</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -12,34 +13,180 @@
 
 <style>
     body {
-  background: url('https://image.made-in-china.com/2f0j00OMzGiutagJkc/New-Hotel-Wallpaper-Designs-Home-Decoration-3D-Wallpaper-for-Rome-Wall.jpg') no-repeat center center fixed;
+  background: url('https://img.freepik.com/premium-photo/reception-lobby-artwork-hotel-office_41926-993.jpg?w=2000') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
 }
 </style>
+<nav class="navbar justify-content-center"  style="background-color: #d8bb78">
+    <div class="row">
+        <div class="col-12">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="navbar-brand text-white fs-1 fw-light" href="{{ route('index.index') }}">Sistema de Reservacion de Hotel</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-12">
+            <ul class="nav justify-content-center " >
+                <li class="nav-item">
+                  <a class="nav-link text-white active" aria-current="page" href="#">Reservaciones</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Habitaciones</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Instalaciones</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white ">Room Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white ">Hospedaje</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link  text-white">Personal</a>
+                  </li>
+              </ul>
+        </div>
+    </div>
+</nav>
+
 <body>
+    <div class="container overflow-hidden ">
+        <p class="fw-light fs-1 text-white text-left" style="text-shadow: 8px 2px 4px #000000">Lista de habitaciones disponibles</p>
+        <div class="row gx-5">
+          <div class="col">
+           <div class="p-3 ">@foreach ($habitaciones as $habitacion)
+            @if ($habitacion -> estado == 0)
+            <div class="row no-gutters rounded  mb-5 text-white bg-dark"   >
+                <div class="col-sm-5">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="card-img mt-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="card-img mt-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="Second slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="card-img mt-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="Third slide">
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only"></span>
+                        </a>
+                      </div>
+
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h4 class="card-title text-center fs-semibold mt-3">{{$habitacion->nombre}}</h4>
+                        <div class="text-left ml-2">
+                            <h5 class="card-text fs-light">{{$habitacion->descripcion}}.</h5>
+                            <p class="card-text font-weight-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person mr-2" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                              </svg>habitacion para {{$habitacion->personas}} personas.</p>
+                              <h6 class="card-text font-bold">MXM$ {{$habitacion->precio}}.</h6>
+
+                            <span class="badge rounded-pill text-bg-success">
+                                @if ($habitacion->estado == 0)
+                                    disponible
+                                @else
+                                    ocupada
+                                @endif
+                               </span>
+
+
+                        </div>
+                            <div class="d-grid gap-2">
+                                <a href="#" class="btn btn-info btn-sm btn-block m-2" data-toggle="modal" data-target="#exampleModalCenter">Reservar</a>
+                              </div>
+
+                    </div>
+                </div>
+            </div>
+            @else
+
+            @endif
+
+
+            @endforeach</div>
+          </div>
+          <div class="col">
+            <div class="p-3 ">@foreach ($habitaciones as $habitacion)
+                @if ($habitacion -> estado == 0)
+                <div class="row no-gutters rounded  mb-5 text-white bg-dark"   >
+                    <div class="col-sm-5">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img class="card-img mt-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="First slide">
+                              </div>
+                              <div class="carousel-item">
+                                <img class="card-img mt-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="Second slide">
+                              </div>
+                              <div class="carousel-item">
+                                <img class="card-img mt-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="Third slide">
+                              </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only"></span>
+                            </a>
+                          </div>
+
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="card-body">
+                            <h4 class="card-title text-center fs-semibold mt-3">{{$habitacion->nombre}}</h4>
+                            <div class="text-left ml-2">
+                                <h5 class="card-text fs-light">{{$habitacion->descripcion}}.</h5>
+                                <p class="card-text font-weight-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person mr-2" viewBox="0 0 16 16">
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                                  </svg>habitacion para {{$habitacion->personas}} personas.</p>
+                                  <h6 class="card-text font-bold">MXM$ {{$habitacion->precio}}.</h6>
+
+                                <span class="badge rounded-pill text-bg-success"> @if ($habitacion->estado == 0)
+                                    disponible
+                                @else
+                                    ocupada
+                                @endif</span>
+
+
+                            </div>
+                                <div class="d-grid gap-2">
+                                    <a href="#" class="btn btn-info btn-sm btn-block m-2" data-toggle="modal" data-target="#exampleModalCenter">Reservar</a>
+                                  </div>
+
+                        </div>
+                    </div>
+                </div>
+                @else
+
+                @endif
+
+
+                @endforeach</div>
+          </div>
+        </div>
+      </div>
+
+
 
 
 <div class="div mt-5 m-5">
-<h4 class="text-center font-weight-bold text-secondary "> Sistema de Reservacion de Hotel</h4>
-
-<ul class="nav nav-tabs " id="nav-tab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Disponibles</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-danger text-bold"  id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Ocupadas</a>
-  </li>
-  <li class="nav-item justify-content-end">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
-</ul>
-<ul class="nav justify-content-end">
-  <li class="nav-item">
-    <a class="nav-link active text-warning font-weight-bold" href="#">Cerrar Sesion</a>
-  </li>
 
 </ul>
 <div class="tab-content" id="nav-tabContent">
@@ -49,57 +196,7 @@
         <div class="d-flex flex-row bd-highlight ">
 
             <div class="card mt-5 " style="width: 750px; background-color:transparent " >
-                @foreach ($habitaciones as $habitacion)
-                <div class="row no-gutters rounded border mb-5 border border-secondary bg-dark text-white" >
-                    <div class="col-sm-5">
 
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img class="card-img mt-5 ml-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="First slide">
-                              </div>
-                              <div class="carousel-item">
-                                <img class="card-img mt-5 ml-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="Second slide">
-                              </div>
-                              <div class="carousel-item">
-                                <img class="card-img mt-5 ml-3" src="https://www.lasbrisashotels.com.mx/wp-content/uploads/2016/10/Deluxe-3-WEB.jpg" alt="Third slide">
-                              </div>
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="sr-only">Next</span>
-                            </a>
-                          </div>
-
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="card-body">
-                            <h4 class="card-title text-center font-weight-bold">{{$habitacion->nombre}}</h4>
-                            <div class="text-left ml-2">
-                                <h5 class="card-text font-weight-light">{{$habitacion->descripcion}}.</h5>
-                                <p class="card-text font-weight-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person mr-2" viewBox="0 0 16 16">
-                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                                  </svg>habitacion para {{$habitacion->personas}} personas.</p>
-                                  <h6 class="card-text font-bold">MXM$ {{$habitacion->precio}}.</h6>
-
-                                <span class="badge badge-success">{{$habitacion->estado}}</span>
-
-
-                            </div>
-
-                            <a href="#" class="btn btn-outline-info btn-lg btn-block m-2" data-toggle="modal" data-target="#exampleModalCenter">Reservar</a>
-
-
-
-                        </div>
-                    </div>
-                </div>
-
-                @endforeach
             </div>
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">

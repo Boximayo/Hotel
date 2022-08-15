@@ -25,4 +25,5 @@ Route::get('/', function () {
 Auth::routes();
 
 
+Route::Resource('index', 'App\Http\Controllers\IndexController');
 Route::Resource('welcome', 'App\Http\Controllers\WelcomeController');

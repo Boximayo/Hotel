@@ -17,12 +17,12 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
 </head>
 <style>
     body {
-  background: url('https://image.made-in-china.com/2f0j00OMzGiutagJkc/New-Hotel-Wallpaper-Designs-Home-Decoration-3D-Wallpaper-for-Rome-Wall.jpg') no-repeat center center fixed;
+  background: url('https://img.freepik.com/premium-photo/reception-lobby-artwork-hotel-office_41926-993.jpg?w=2000') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -31,58 +31,49 @@
 </style>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light  shadow-lg">
-            <div class="container">
-
-                <div class="text-center"><a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a></div>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
+        <nav class="navbar justify-content-center  shadow-lg"  style="background-color: #d8bb78">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="nav justify-content-center">
+                        <li class="nav-item">
+                            <a class="navbar-brand text-white fs-1 fw-light" href="{{ route('index.index') }}">Sistema de Reservacion de Hotel</a>
+                        </li>
                     </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
+                </div>
+                <div class="col-12">
+                    <ul class="nav justify-content-center " >
                         @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                        @if (Route::has('login'))
+                            <li class="nav-item ">
+                                <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                        @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                      </ul>
                 </div>
             </div>
         </nav>

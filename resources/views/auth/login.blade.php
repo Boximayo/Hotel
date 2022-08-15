@@ -5,7 +5,7 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card bg-dark text-white">
+            <div class="card  text-white" style="background-color: #d8bb78">
                 <div class="mt-5 mb-3 text-center h3 font-weight-bold">{{ __('Ingresa tus datos para iniciar sesion') }}</div>
 
                 <div class="card-body">
@@ -55,14 +55,14 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <div>
-                                    <button type="submit" class="btn w-100 btn-lg btn-block btn-outline-info">
+                                    <button type="submit" class="btn w-100 btn-lg btn-block btn-dark">
                                         {{ __('Acceder ') }}
                                     </button>
                                 </div>
 
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn text-white  offset-md-3" href="{{ route('password.request') }}">
+                                    <a class="btn text-white  offset-md-2" href="{{ route('password.request') }}">
                                         {{ __('Olvidaste tus datos?') }}
                                     </a>
                                 @endif
